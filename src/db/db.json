@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "id": "75850e04-f58c-4f71-a477-8025114251c5",
+    "name": "Prof. Janet Kertzmann",
+    "phone": "1-800-472-7407",
+    "email": "janet.kertzmann@example.com",
+    "job": "Global Solutions Administrator"
+  },
+  {
+    "id": "67041a0b-1f6f-4d6c-bb9b-b0b2e8471c08",
+    "name": "Ms. Julia Morissette",
+    "phone": "1-800-249-1657",
+    "email": "julia.morissette@example.com",
+    "job": "Corporate Metrics Analyst"
+  },
+  {
+    "id": "27f71b9c-7a91-4c0a-bf1f-b51f0f4a8e3d",
+    "name": "Dr. Ernestine Collier",
+    "phone": "1-800-580-0414",
+    "email": "ernestine.collier@example.com",
+    "job": "Product Development Officer"
+  },
+  {
+    "id": "e0b17b6a-7d2d-4f1a-b6e9-3b6d9a9f2c8a",
+    "name": "Mrs. Evelyn Kutch",
+    "phone": "1-800-332-9012",
+    "email": "evelyn.kutch@example.com",
+    "job": "Chief Mobility Technician"
+  }
+]
