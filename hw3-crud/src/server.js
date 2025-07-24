@@ -7,6 +7,9 @@ import {
   getContactByIdController,
 } from './controllers/contacts.js';
 
+import notFoundHandler from './middlewares/notFoundHandler.js';
+import errorHandler from './middlewares/errorHandler.js';
+
 const setupServer = () => {
   const app = express();
   app.use(express.json());
@@ -16,9 +19,8 @@ const setupServer = () => {
   app.get('/contacts', getContactsController);
   app.get('/contacts/:contactId', getContactByIdController);
 
-  app.use((req, res) => {
-    res.status(404).json({ message: 'Not found' });
-  });
+  app.use(notFoundHandler);
+  app.use(errorHandler);
 
   const PORT = env('PORT');
   app.listen(PORT, () => {
