@@ -5,6 +5,7 @@ import {
   getContactById,
   createContact,
   updateContact,
+  deleteContact,
 } from '../services/contacts.js';
 import mongoose from 'mongoose';
 
@@ -58,6 +59,14 @@ export const patchContactController = ctrlWrapper(async (req, res, next) => {
   });
 });
 
-export const deleteContactController = ctrlWrapper((req, res) =>
-  res.status(501).json({ message: 'deleteContactController Not Implemented' }),
-);
+export const deleteContactController = ctrlWrapper(async (req, res, next) => {
+  const { contactId } = req.params;
+  if (!mongoose.isValidObjectId(contactId)) {
+    throw createHttpError(400, 'Invalid contact ID');
+  }
+  const contact = await deleteContact(contactId);
+  if (!contact) {
+    throw createHttpError(404, 'Contact not found');
+  }
+  res.status(204).send(); // Respond with 204 (No Content) without a body
+});
