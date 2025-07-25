@@ -28,5 +28,3 @@ const setupServer = () => {
   });
 };
 export default setupServer;
-
-// fix
