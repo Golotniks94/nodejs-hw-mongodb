@@ -1,0 +1,20 @@
+import createHttpError from 'http-errors';
+
+const validateBody = (schema) => async (req, res, next) => {
+  try {
+    await schema.validateAsync(req.body, { abortEarly: false });
+    next();
+  } catch (error) {
+    if (error.isJoi) {
+      throw createHttpError(400, 'Validation Error', {
+        errors: error.details.map((detail) => ({
+          field: detail.path.join('.'),
+          message: detail.message,
+        })),
+      });
+    }
+    next(error);
+  }
+};
+
+export default validateBody;
