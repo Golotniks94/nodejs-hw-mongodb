@@ -3,10 +3,10 @@ import mongoose from 'mongoose';
 import { env } from '../utils/env.js';
 
 export const initMongoConnection = async () => {
-  const uri = env('MONGO_URL');
+  const uri = env('MONGODB_URI');
 
   if (!uri) {
-    throw new Error('MONGO_URL is not defined in .env file');
+    throw new Error('MONGODB_URI is not defined in .env file');
   }
 
   try {
